@@ -1,0 +1,62 @@
+@use 'variables';
+@mixin sizes ($ancho, $alto){
+    width: $ancho;
+    height: $alto;
+}
+
+
+.header{
+    padding: 0;
+    background-color: #a7c957;
+
+    .header_title{
+        margin: variables.$margin_default;
+        padding: variables.$padding_default;
+        font-size: variables.$fontsize_h1;
+    }
+}
+.main{
+    padding: 0;
+
+    .main_section__section{
+        background-image: url(../img/dolares.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include sizes(150rem, 50rem);
+    
+        .main_section__article{
+            margin: variables.$margin_default;
+            padding: variables.$padding_default;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            label{
+                margin-bottom: variables.$margin_default - 1;
+                color: #ffffff;
+                font-size: variables.$fontsize_h1;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-align: center;
+                padding: variables.$padding_default;
+            }
+            input{
+                @include sizes(50rem, 5rem);
+                margin-top: variables.$margin_default + 5;
+                padding: variables.$padding_default + 2;
+                font-size: variables.$fontsize_h3;
+                text-align: center;
+            }
+            button{
+                margin-top: variables.$margin_default + 4;
+                padding: variables.$padding_default;
+                font-size: variables.$fontsize_h2;
+                &:hover{
+                    transform: scale(1.2);
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}
