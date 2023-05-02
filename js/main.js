@@ -8,18 +8,48 @@ if (usuario !== "") {
     alert("Bienvenido " + usuario + "!");
 }
 
-const MONEDAS = [
-  { nombre: "Dólar", constante: 96.45 },
-  { nombre: "Euro", constante: 114.60 },
-  { nombre: "Real", constante: 18.29 },
+const campeones = [
+  {
+    nombre: "Argentina",
+    cantidad: "3 veces"
+  },
+  {
+    nombre: "Alemania",
+    cantidad: "4 veces"
+  },
+  {
+    nombre: "Brasil",
+    cantidad: "5 veces"
+  },
+  {
+    nombre: "España",
+    cantidad: "1 vez"
+  },
+  {
+    nombre: "Francia",
+    cantidad: "2 veces"
+  },
+  {
+    nombre: "Inglaterra",
+    cantidad: "1 vez"
+  },
+  {
+    nombre: "Italia",
+    cantidad: "4 veces"
+  },
+  {
+    nombre: "Uruguay",
+    cantidad: "2 veces"
+  }
 ];
 
-function convertir() {
-  const moneda = document.getElementById("moneda").value;
-  const cantidad = document.getElementById("cantidad").value;
+function buscar() {
+  const pais = document.getElementById("paises").value;
+  const paisEncontrado = campeones.find(p => p.nombre.toLowerCase() === pais.toLowerCase());
 
-  const constante = MONEDAS.find((m) => m.nombre === moneda).constante;
-  const resultado = (cantidad / constante).toFixed(2);
-
-  alert("El resultado de la conversión es: " + resultado);
+  if (paisEncontrado) {
+    alert("Sí, " + paisEncontrado.nombre + " ha ganado la copa del mundo " + paisEncontrado.cantidad + "!");
+  } else {
+    alert("Lo siento, " + pais + " no ha ganado la copa del mundo.");
+  }
 }

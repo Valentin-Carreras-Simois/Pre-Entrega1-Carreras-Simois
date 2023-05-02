@@ -7,7 +7,7 @@
 
 .header{
     padding: 0;
-    background-color: #a7c957;
+    background-color: #3a86ff;
 
     .header_title{
         margin: variables.$margin_default;
@@ -19,11 +19,11 @@
     padding: 0;
 
     .main_section__section{
-        background-image: url(../img/dolares.jpg);
+        background-image: url(../img/mundial.jpg);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size:cover;
         background-position: center;
-        @include sizes(150rem, 50rem);
+        @include sizes(150rem, 80rem);
     
         .main_section__article{
             margin: variables.$margin_default;
@@ -43,7 +43,7 @@
             }
             input{
                 @include sizes(50rem, 5rem);
-                margin-top: variables.$margin_default + 5;
+                margin-top: variables.$margin_default + 25;
                 padding: variables.$padding_default + 2;
                 font-size: variables.$fontsize_h3;
                 text-align: center;
