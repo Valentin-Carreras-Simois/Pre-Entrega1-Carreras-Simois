@@ -181,6 +181,10 @@
                         border-radius: 1rem;
                         text-transform: uppercase;
                         cursor: pointer;
+                        &:hover{
+                            transform: scale(1.1);
+                            transition: 0.3s;
+                        }
                     }
                 }
                 .carrito-acciones-comprar{
@@ -205,6 +209,10 @@
                         text-transform: uppercase;
                         border-radius: 0 1rem 1rem 0;
                         cursor: pointer;
+                        &:hover{
+                            transform: scale(1.1);
+                            transition: 0.3s;
+                        }
                     }
                 }
             }

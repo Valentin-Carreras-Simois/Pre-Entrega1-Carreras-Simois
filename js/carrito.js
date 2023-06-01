@@ -133,10 +133,24 @@ function agregarProductoAlCarrito(producto) {
 }
 
 function vaciarCarrito() {
-  productosEnCarrito = [];
-  localStorage.removeItem("productosEnCarrito");
-  actualizarCarrito();
+
+  Swal.fire({
+    title: 'Estas seguro?',
+    icon: 'warning',
+    html:'Se borraran los productos de tu carrito.',
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText:'Si',
+    cancelButtonText:'Volver',
+  }).then((result) => {
+  if (result.isConfirmed) {
+      productosEnCarrito = [];
+      localStorage.removeItem("productosEnCarrito");
+      actualizarCarrito();
+    }
+  })
 }
+
 function actualizarBotonesEliminar() {
   botonesEliminar = document.querySelectorAll(".carrito_producto__eliminar");
 
@@ -146,6 +160,26 @@ function actualizarBotonesEliminar() {
 }
 
 function eliminarDelCarrito(event) {
+
+  Toastify({
+    text: "Producto eliminado!",
+    duration: 3000,
+    destination: "https://github.com/apvarun/toastify-js",
+    newWindow: true,
+    close: true,
+    gravity: "top",
+    position: "right", 
+    stopOnFocus: true, 
+    style: {
+      background: "linear-gradient(to right, #ba181b, #a4161a)",
+      fontSize: "2rem"
+    },
+    offset: {
+      x: "1.5rem", 
+      y: "1.5rem"
+    },
+    onClick: function(){} // Callback after click
+}).showToast();
   const productoId = event.currentTarget.id;
   
   productosEnCarrito = productosEnCarrito.filter(producto => producto.id !== productoId);
@@ -174,6 +208,11 @@ actualizarCarrito();
 
 const botonComprarAhora = document.querySelector(".boton-comprar");
 botonComprarAhora.addEventListener("click", () => {
+  Swal.fire(
+    'Gracias por tu compra!',
+    'El producto esta en camino!',
+    'success'
+  )
   carritoProductos.classList.add("disabled");
   carritoAcciones.classList.add("disabled");
   carritoComprado.classList.remove("disabled");
