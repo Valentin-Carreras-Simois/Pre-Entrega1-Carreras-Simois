@@ -1,61 +1,6 @@
-const productos = [
-    {
-        id: "camiseta_bos",
-        titulo: "Camiseta Boston Celtics 2023",
-        imagen: "./img/camiseta-boston.webp",
-        categoria: "Camisetas",
-        precio: 20000
-    },
-    {
-        id: "camiseta_tor",
-        titulo: "Camiseta Toronto Raptors",
-        imagen: "./img/camiseta-toronto.webp",
-        categoria: "Camisetas",
-        precio: 18000
-    },
-    {
-        id: "camiseta_phx",
-        titulo: "Camiseta Phoenix Suns 2023",
-        imagen: "./img/camiseta-phoenix.webp",
-        categoria: "Camisetas",
-        precio: 19000
-    },
-    {
-        id: "camiseta_mia",
-        titulo: "Camiseta Miami Heat 2023",
-        imagen: "./img/camiseta-miami.webp",
-        categoria: "Camisetas",
-        precio: 18000
-    },
-    {
-        id: "campera_chi",
-        titulo: "Chicago Bulls Jacket 90's",
-        imagen: "./img/campera-chicago.webp",
-        categoria: "Camperas",
-        precio: 37000
-    },
-    {
-        id: "campera_orl",
-        titulo: "Orlando Magic Jacket 90's",
-        imagen: "./img/campera-orlando.webp",
-        categoria: "Camperas",
-        precio: 30000
-    },
-    {
-        id: "campera_phi",
-        titulo: "Philadelphia 76ers Jackets 90's",
-        imagen: "./img/campera-philadelphia.webp",
-        categoria: "Camperas",
-        precio: 45000
-    },
-    {
-        id: "campera_jor",
-        titulo: "Chaqueta bomber Air Jordan",
-        imagen: "./img/campera-jordan.webp",
-        categoria: "Camperas",
-        precio: 37000
-    },
-];
+let productosEnCarrito = localStorage.getItem("productos-en-carrito");
+productosEnCarrito = JSON.parse(productosEnCarrito);
+
   
 const carritoVacio = document.querySelector("#carrito-vacio");
 const carritoProductos = document.querySelector("#article_carrito__productos");
@@ -63,8 +8,6 @@ const carritoAcciones = document.querySelector("#article_carrito__acciones");
 const carritoComprado = document.querySelector("#carrito-comprado");
 let botonesEliminar = document.querySelectorAll("carrito_producto__eliminar")
 const totalElement = document.querySelector("#total");
-
-let productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito")) || [];
 
 function actualizarCarrito() {
   if (productosEnCarrito.length === 0) {
